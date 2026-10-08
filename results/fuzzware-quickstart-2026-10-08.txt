@@ -1,0 +1,671 @@
+[+] Mapping local dir 'examples' into container
+[+] Executing command: ' fuzzware pipeline --skip-afl-cpufreq pw-recovery/ARCH_PRO'
+[+] Running with -it
+[10-08 11:47:16 INFO] __init__.py - Executing pipeline at 2026-10-08 11:47:16.848455
+[10-08 11:47:16 INFO] __init__.py - Got projdir: /home/user/fuzzware/targets/pw-recovery/ARCH_PRO
+[10-08 11:47:16 INFO] __init__.py - Could not find 'base_inputs' directory in target base dir, defaulting to generic initial inputs
+[10-08 11:47:16 INFO] __init__.py - Performing initial tests
+[10-08 11:47:16 INFO] __init__.py - Initial tests successful
+[10-08 11:47:16 WARNING] pipeline.py - Found an existing project directory under /home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project. Moving it now
+[10-08 11:47:16 WARNING] pipeline.py - Removing old backed up project: /home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project_old
+[10-08 11:47:16 INFO] pipeline.py - logging pipeline output to: /home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/logs/pipeline.log
+[10-08 11:47:16 INFO] pipeline.py - Dry-running emulator to check functionality..
+
+[10-08 11:47:16 INFO] run_target.py - Running target with
+config path: /home/user/fuzzware/targets/pw-recovery/ARCH_PRO/config.yml
+input path: /home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/.empty_input
+Extra args: ['-v']
+
+add_mmio_region called! hooking 0x40000000 - 0x60000000
+[FORKSERVER SETUP] It looks like we are not running under AFL, going for single input
+[DISCOVERY FORK PARENT] Got number of ticks to step: 694
+Ran into instruction limit of 692 at 0x000011ca - exiting
+[+] Initial constant execution (including optional prefix input) done, starting input execution.
+Running without a fork server
+
+>>> Ran out of fuzz
+
+Exited without crash at 0x00001210 - If no other reason, we ran into one of the limits
+[10-08 11:47:17 INFO] pipeline.py - Emulator dry-run successful!
+[10-08 11:47:17 INFO] pipeline.py - Adding pipeline level observers
+[10-08 11:47:17 INFO] pipeline.py - Initializing worker pool
+[10-08 11:47:17 INFO] pool.py - [WorkerPool] Starting redis server
+[10-08 11:47:17 WARNING] pool.py - Redis ping returned: True
+[10-08 11:47:17 INFO] pool.py - Redis server successfully started on port 49128
+[10-08 11:47:17 WARNING] pool.py - Redis ping returned: True
+[10-08 11:47:17 INFO] pool.py - [WorkerPool] Spawning additional modeling worker
+[10-08 11:47:17 INFO] pool.py - [WorkerPool] enabling logging for modeling worker!
+[10-08 11:47:17 INFO] pool.py - [WorkerPool] Spawning additional gen worker
+[10-08 11:47:17 INFO] pool.py - [WorkerPool] enabling logging for gen worker!
+[10-08 11:47:19 INFO] run_fuzzer.py - Starting corpus minimization
+[10-08 11:47:19 INFO] run_fuzzer.py - Command line: /home/user/fuzzware/pipeline/fuzzware_pipeline/../../emulator/afl/afl-cmin -m none -U -t 10000 -i /home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/base_inputs_non_minimized -o /home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/base_inputs -e -- /usr/bin/python3 -m fuzzware_harness.harness -c /home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/config.yml @@
+[10-08 11:47:19 INFO] run_fuzzer.py - afl arguments: ['/home/user/fuzzware/pipeline/fuzzware_pipeline/../../emulator/afl/afl-cmin', '-m', 'none', '-U', '-t', '10000', '-i', '/home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/base_inputs_non_minimized', '-o', '/home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/base_inputs', '-e']
+[10-08 11:47:19 INFO] run_fuzzer.py - harness arguments: ['/usr/bin/python3', '-m', 'fuzzware_harness.harness', '-c', '/home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/config.yml']
+corpus minimization tool for afl-fuzz by <lcamtuf@google.com>
+
+[*] Testing the target binary...
+[+] OK, 9 tuples recorded.
+[*] Obtaining traces for input files in '/home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/base_inputs_non_minimized'...
+[1;94m[*] [0mScanning '/home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/base_inputs_non_minimized'...[0m
+[1;94m[*] [0mSpinning up the fork server...[0m
+add_mmio_region called! hooking 0x40000000 - 0x60000000
+[1;92m[+] [0mAll right - fork server is up.[0m
+[DISCOVERY FORK PARENT] Got number of ticks to step: 694
+[+] Initial constant execution (including optional prefix input) done, starting input execution.
+[FORKSERVER MAIN LOOP] Forkserver pipe now closed. Exiting
+
+[*] Sorting trace sets (this may take a while)...
+cat: /home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/base_inputs/.traces/03_empty_input: No such file or directory
+[+] Found 163 unique tuples across 4 files.
+[*] Finding best candidates for each tuple...
+    Processing file 1/4... sed: can't read /home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/base_inputs/.traces/03_empty_input: No such file or directory
+    Processing file 2/4...     Processing file 3/4...     Processing file 4/4... 
+[*] Sorting candidate list (be patient)...
+[*] Processing candidates and writing output files...
+    Processing tuple 1/163...     Processing tuple 2/163...     Processing tuple 3/163...     Processing tuple 4/163...     Processing tuple 5/163...     Processing tuple 6/163...     Processing tuple 7/163...     Processing tuple 8/163...     Processing tuple 9/163...     Processing tuple 10/163...     Processing tuple 11/163...     Processing tuple 12/163...     Processing tuple 13/163...     Processing tuple 14/163...     Processing tuple 15/163...     Processing tuple 16/163...     Processing tuple 17/163...     Processing tuple 18/163...     Processing tuple 19/163...     Processing tuple 20/163...     Processing tuple 21/163...     Processing tuple 22/163...     Processing tuple 23/163...     Processing tuple 24/163...     Processing tuple 25/163...     Processing tuple 26/163...     Processing tuple 27/163...     Processing tuple 28/163...     Processing tuple 29/163...     Processing tuple 30/163...     Processing tuple 31/163...     Processing tuple 32/163...     Processing tuple 33/163...     Processing tuple 34/163...     Processing tuple 35/163...     Processing tuple 36/163...     Processing tuple 37/163...     Processing tuple 38/163...     Processing tuple 39/163...     Processing tuple 40/163...     Processing tuple 41/163...     Processing tuple 42/163...     Processing tuple 43/163...     Processing tuple 44/163...     Processing tuple 45/163...     Processing tuple 46/163...     Processing tuple 47/163...     Processing tuple 48/163...     Processing tuple 49/163...     Processing tuple 50/163...     Processing tuple 51/163...     Processing tuple 52/163...     Processing tuple 53/163...     Processing tuple 54/163...     Processing tuple 55/163...     Processing tuple 56/163...     Processing tuple 57/163...     Processing tuple 58/163...     Processing tuple 59/163...     Processing tuple 60/163...     Processing tuple 61/163...     Processing tuple 62/163...     Processing tuple 63/163...     Processing tuple 64/163...     Processing tuple 65/163...     Processing tuple 66/163...     Processing tuple 67/163...     Processing tuple 68/163...     Processing tuple 69/163...     Processing tuple 70/163...     Processing tuple 71/163...     Processing tuple 72/163...     Processing tuple 73/163...     Processing tuple 74/163...     Processing tuple 75/163...     Processing tuple 76/163...     Processing tuple 77/163...     Processing tuple 78/163...     Processing tuple 79/163...     Processing tuple 80/163...     Processing tuple 81/163...     Processing tuple 82/163...     Processing tuple 83/163...     Processing tuple 84/163...     Processing tuple 85/163...     Processing tuple 86/163...     Processing tuple 87/163...     Processing tuple 88/163...     Processing tuple 89/163...     Processing tuple 90/163...     Processing tuple 91/163...     Processing tuple 92/163...     Processing tuple 93/163...     Processing tuple 94/163...     Processing tuple 95/163...     Processing tuple 96/163...     Processing tuple 97/163...     Processing tuple 98/163...     Processing tuple 99/163...     Processing tuple 100/163...     Processing tuple 101/163...     Processing tuple 102/163...     Processing tuple 103/163...     Processing tuple 104/163...     Processing tuple 105/163...     Processing tuple 106/163...     Processing tuple 107/163...     Processing tuple 108/163...     Processing tuple 109/163...     Processing tuple 110/163...     Processing tuple 111/163...     Processing tuple 112/163...     Processing tuple 113/163...     Processing tuple 114/163...     Processing tuple 115/163...     Processing tuple 116/163...     Processing tuple 117/163...     Processing tuple 118/163...     Processing tuple 119/163...     Processing tuple 120/163...     Processing tuple 121/163...     Processing tuple 122/163...     Processing tuple 123/163...     Processing tuple 124/163...     Processing tuple 125/163...     Processing tuple 126/163...     Processing tuple 127/163...     Processing tuple 128/163...     Processing tuple 129/163...     Processing tuple 130/163...     Processing tuple 131/163...     Processing tuple 132/163...     Processing tuple 133/163...     Processing tuple 134/163...     Processing tuple 135/163...     Processing tuple 136/163...     Processing tuple 137/163...     Processing tuple 138/163...     Processing tuple 139/163...     Processing tuple 140/163...     Processing tuple 141/163...     Processing tuple 142/163...     Processing tuple 143/163...     Processing tuple 144/163...     Processing tuple 145/163...     Processing tuple 146/163...     Processing tuple 147/163...     Processing tuple 148/163...     Processing tuple 149/163...     Processing tuple 150/163...     Processing tuple 151/163...     Processing tuple 152/163...     Processing tuple 153/163...     Processing tuple 154/163...     Processing tuple 155/163...     Processing tuple 156/163...     Processing tuple 157/163...     Processing tuple 158/163...     Processing tuple 159/163...     Processing tuple 160/163...     Processing tuple 161/163...     Processing tuple 162/163...     Processing tuple 163/163... 
+[+] Narrowed down to 2 files, saved in '/home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/base_inputs'.
+
+[10-08 11:47:20 INFO] session.py - Starting fuzzer number 1
+Creating fuzzer instance with session: <fuzzware_pipeline.session.Session object at 0x71d784a05db0>, inst_num: 1
+[10-08 11:47:20 INFO] session.py - Appending fuzzer: Local fuzzing instance.
+Command line: 
+[10-08 11:47:20 INFO] run_fuzzer.py - Starting afl
+[10-08 11:47:20 INFO] run_fuzzer.py - afl arguments: ['/home/user/fuzzware/pipeline/fuzzware_pipeline/../../emulator/afl/afl-fuzz', '-m', 'none', '-U', '-t', '10000', '-i', '/home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/base_inputs', '-o', '/home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/fuzzers/fuzzer1', '-d']
+[10-08 11:47:20 INFO] run_fuzzer.py - harness arguments: ['/usr/bin/python3', '-m', 'fuzzware_harness.harness', '-c', '/home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/config.yml']
+[10-08 11:47:20 INFO] run_fuzzer.py - Command line: /home/user/fuzzware/pipeline/fuzzware_pipeline/../../emulator/afl/afl-fuzz -m none -U -t 10000 -i /home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/base_inputs -o /home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/fuzzers/fuzzer1 -d -- /usr/bin/python3 -m fuzzware_harness.harness -c /home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/config.yml @@
+[10-08 11:47:20 INFO] session.py - Waiting for fuzzers to have started up
+[10-08 11:47:22 INFO] session.py - Fuzzers started up, setting up listeners for input generation
+[10-08 11:47:22 INFO] session.py - Observing directory '/home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/fuzzers/fuzzer1/queue' now
+[10-08 11:47:22 INFO] session.py - Observing trace dir: /home/user/fuzzware/targets/pw-recovery/ARCH_PRO/fuzzware-project/main001/fuzzers/fuzzer1/traces
+[10-08 11:47:22 INFO] pipeline.py - Listening for new queue entries
+[10-08 11:47:23 INFO] pipeline.py - Found 533 new translation / basic blocks!
+[10-08 11:47:23 INFO] pipeline.py - New translation block: 0x00002000 (__libc_init_array)
+[10-08 11:47:23 INFO] pipeline.py - New translation block: 0x00001800 (initialize)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002002 (__libc_init_array)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001802 (initialize)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001808 (initialize)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002810 (__swsetup_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002018 (__retarget_lock_init_recursive)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000181a (initialize)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000281c (__swsetup_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000181e (initialize)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002020 (__retarget_lock_acquire_recursive)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002822 (__swsetup_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002024 (__retarget_lock_release_recursive)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002028 (__swhatbuf_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000182a (initialize)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000282c (__swsetup_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000182e (initialize)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002830 (__swsetup_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002836 (__swsetup_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000203a (__swhatbuf_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002040 (__swhatbuf_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000840 (write)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001042 (serial_set_flow_control)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002842 (__swsetup_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002044 (__swhatbuf_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000184a (initialize)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000084a (write)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001058 (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000858 (write)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000285c (__swsetup_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000085c (write)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002866 (__swsetup_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000866 (write)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001868 (initialize)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000106a (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000286e (__swsetup_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001074 (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000874 (_write)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000107c (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000187c (initialize)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002084 (__smakebuf_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000888 (_write)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000088a (_write)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000108c (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000088e (_write)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001094 (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001096 (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000898 (read)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000209a (__smakebuf_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000189c (initialize)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000109e (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000008a2 (read)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000020aa (__smakebuf_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000008b0 (read)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000020b4 (__smakebuf_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000008b4 (read)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000010b8 (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000020ba (__smakebuf_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000008be (read)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000018c0 (initialize)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000010c4 (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000010cc (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000008cc (_read)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000020d0 (__smakebuf_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000008d2 (_read)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000010d4 (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000010d8 (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000020d8 (__smakebuf_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000010e0 (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000020e2 (__smakebuf_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000010e4 (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000020e4 (__smakebuf_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000008e8 (isatty)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000010ec (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000008ee (isatty)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000010f2 (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000010f4 (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000068f4 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000008fa (isatty)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000010fc (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000008fe (isatty)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000904 (isatty)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006906 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000690e (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006914 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000914 (_isatty)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001118 (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006918 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000111e (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006920 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006926 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002128 (memchr)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000692c (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001934 (ticker_read_us)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000027fe (_write_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001940 (ticker_read_us)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001944 (ticker_read_us)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006944 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001948 (ticker_read_us)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000114c (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000194e (ticker_read_us)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000950 (fstat)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001952 (ticker_read_us)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002156 (memchr)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000958 (fstat)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000195a (ticker_read)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000215a (memchr)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000215c (memchr)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001960 (ticker_read)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006960 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000096a (fstat)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000970 (fstat)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000217a (memchr)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000217e (memchr)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001186 (serial_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000986 (fstat)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002188 (memchr)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000098c (_fstat)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000990 (mbed_main)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000992 (mbed_sdk_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000994 (software_init_hook_rtos)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000998 (mbed_copy_nvic)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000019a0 (core_util_critical_section_enter)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000021a0 (memchr)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000009a4 (mbed_copy_nvic)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000071a4 (_sbrk_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000021a6 (memchr)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000021ac (memchr)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000009b0 (mbed_copy_nvic)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000021b0 (memchr)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000019b4 (core_util_critical_section_enter)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000021b4 (memcpy)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000071b4 (_sbrk_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000019b8 (core_util_critical_section_enter)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000071b8 (_sbrk_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000069be (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000021c0 (memcpy)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000029c0 (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000011c4 (Reset_Handler)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000009c4 (software_init_hook)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000029c6 (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000071c8 (_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000011ca (Reset_Handler)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000009ca (software_init_hook)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000019cc (core_util_critical_section_exit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000009ce (software_init_hook)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000059d0 (__ashldi3)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000009d2 (software_init_hook)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000019d2 (core_util_critical_section_exit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000009d4 (__wrap_main)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000011d8 (Reset_Handler)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000029d8 (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000009da (__wrap_main)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000011dc (Reset_Handler)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000019dc (core_util_critical_section_exit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000009e4 (pin_function)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000009f8 (pin_function)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001208 (SystemInit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000220c (memcpy)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001218 (SystemInit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002a1c (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001220 (SystemInit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002a24 (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002228 (memcpy)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000222c (memcpy)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002a2c (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000a30 (pin_mode)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002a32 (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002238 (memcpy)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002a3c (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000a44 (pin_mode)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000224e (memcpy)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001260 (SystemInit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000a74 (pin_mode)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000127c (SystemInit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000022a0 (memset)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000aa4 (serial_irq_set_internal)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000012ac (us_ticker_get_info)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000aae (serial_irq_set_internal)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002aae (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000ab0 (serial_irq_set_internal)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000012b4 (us_ticker_read)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002ab6 (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000022c0 (memset)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000012c0 (us_ticker_set_interrupt)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000022c4 (memset)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006ac4 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002acc (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006ad0 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000022d2 (memset)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000ad2 (serial_irq_set_internal)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000022d8 (memset)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006ada (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002ade (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000022f2 (memset)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002af2 (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000012f4 (us_ticker_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002afc (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000012fe (us_ticker_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006b00 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000b04 (serial_irq_set_internal)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002306 (memset)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006308 (__aeabi_uldivmod)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000b08 (serial_irq_set_internal)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000230a (memset)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000630a (__aeabi_uldivmod)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006b08 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006b10 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002b10 (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002314 (memset)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006b16 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002b16 (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002b18 (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000b1e (serial_irq_set_internal)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006320 (__aeabi_uldivmod)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002322 (memset)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006b22 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000324 (frame_dummy)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000632c (__aeabi_uldivmod)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002b2c (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002330 (memset)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002b30 (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002334 (memset)
+[10-08 11:47:23 INFO] pipeline.py - New translation block: 0x00001336 (us_ticker_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006338 (__udivmoddi4)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000033a (frame_dummy)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000340 (frame_dummy)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002b44 (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006348 (__udivmoddi4)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006b4a (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000b4c (serial_irq_set_internal)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000634e (__udivmoddi4)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002b4e (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002b54 (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006358 (__udivmoddi4)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006b62 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000036c (_start)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006b6c (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001b80 (wait_us)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001b88 (wait_us)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000038a (_start)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001b8e (wait_us)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001b90 (wait_us)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000392 (_start)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001b96 (wait_us)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000398 (_start)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000039a (_start)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001b9c (wait_us)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002b9c (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001b9e (wait_ms)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000063a2 (__udivmoddi4)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000013a4 (main)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002ba4 (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000003a8 (_start)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001ba8 (hal_critical_section_enter)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000003ae (_start)
+[10-08 11:47:23 INFO] pipeline.py - New translation block: 0x00001bb0 (hal_critical_section_enter)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000003b2 (_start)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000013b2 (main)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000023b4 (_puts_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006bb2 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001bb6 (hal_critical_section_enter)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000013c2 (main)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000023c4 (_puts_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001bcc (hal_critical_section_exit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000063d0 (__udivmoddi4)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006bd6 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000013da (main)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000063dc (__udivmoddi4)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000013de (main)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000023e0 (_puts_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000003e0 (gpio_set)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001be0 (hal_critical_section_exit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006be4 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000013ea (main)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001bec (hal_critical_section_exit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001bee (hal_critical_section_exit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000013ee (main)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000023ee (_puts_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000023f2 (_puts_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000003f2 (gpio_set)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000013f4 (main)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000023f6 (_puts_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000013f6 (main)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000003fa (gpio_set)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006bfc (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000013fe (main)
+[10-08 11:47:23 INFO] pipeline.py - New translation block: 0x00000400 (gpio_set)
+[10-08 11:47:23 INFO] pipeline.py - New translation block: 0x00002400 (_puts_r)
+[10-08 11:47:23 INFO] pipeline.py - New translation block: 0x00006c00 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New translation block: 0x00001400 (main)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000040c (gpio_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000240e (_puts_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001c14 (__sflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000418 (gpio_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000041e (gpio_init)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000241e (_puts_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000c28 (serial_baud)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000242a (_puts_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002430 (_puts_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002436 (_puts_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000043a (gpio_mode)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000243c (_puts_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000243e (_puts_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000440 (gpio_dir)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002444 (_puts_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000c44 (serial_baud)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002450 (puts)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000c50 (serial_baud)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000c52 (serial_baud)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000456 (gpio_dir)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000458 (gpio_dir)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000c5c (serial_baud)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002460 (lflush)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000468 (gpio_dir)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000246a (lflush)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000046c (gpio_dir)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000246e (lflush)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002474 (__srefill_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001478 (_GLOBAL__sub_I_led1)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000247c (__srefill_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002482 (__srefill_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001486 (_GLOBAL__sub_I_led1)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000248c (__srefill_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002c96 (__sfvwrite_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000149c (get_us_ticker_data)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001c9c (__sflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000249c (__srefill_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001ca0 (__sflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000024a4 (__srefill_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006ca8 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000024a8 (__srefill_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002cb4 (_isatty_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001cb4 (__sflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000014b8 (gpio_write_0)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001cc0 (__sflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002cc4 (_isatty_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000024c6 (__srefill_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002cc8 (_isatty_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001cca (__sflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000024cc (__srefill_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000014ce (gpio_write_0)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001cce (__sflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000014d4 (gpio_write_0)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000024d6 (__srefill_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000014d8 (gpio_write_0)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000024e4 (__srefill_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000024ea (__srefill_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002d04 (memmove)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002d0a (memmove)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001510 (gpio_init_out_ex)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000d18 (serial_baud)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002518 (__srefill_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000151c (gpio_init_out_ex)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001520 (gpio_init_out_ex)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002d26 (memmove)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001528 (gpio_init_out_ex)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000252a (__srefill_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001530 (gpio_init_out_ex)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000153e (gpio_init_out)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001544 (pinmap_pinout)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001d4c (_fflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001550 (pinmap_pinout)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001554 (pinmap_pinout)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001d54 (_fflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001d58 (_fflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000155c (pinmap_pinout)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001d5e (_fflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001d64 (_fflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006d66 (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001d68 (_fflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002568 (__srefill_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000156a (pinmap_pinout)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000d6c (serial_baud)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000156c (pinmap_pinout)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001d70 (_fflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002570 (__srefill_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001d78 (_fflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000158c (pinmap_merge)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000258c (__srget_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001d8e (_fflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001d94 (_fflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002594 (__srget_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001d98 (_fflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002598 (__srget_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006d9a (_malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001d9e (_fflush_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001da0 (fflush)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000025a0 (__srget_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001da2 (fflush)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000025a2 (__srget_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002da8 (memmove)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002daa (memmove)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000015ac (pinmap_merge)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002dae (memmove)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002dba (memmove)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002dbc (memmove)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000015c0 (pinmap_find_peripheral)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000025c0 (__sread)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000005c4 (_ZN12DirectSerial4sizeEv)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000005ca (_ZN12DirectSerial6isattyEv)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000015ca (pinmap_find_peripheral)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000025cc (__sread)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002dcc (_read_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000015ce (pinmap_find_peripheral)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000025d0 (__sread)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001dd0 (std.isra.0)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000015d2 (pinmap_find_peripheral)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000005d4 (_ZN12DirectSerial5writeEPKvj)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000015d8 (pinmap_peripheral)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000005de (_ZN12DirectSerial5writeEPKvj)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000015e0 (pinmap_peripheral)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000005e2 (_ZN12DirectSerial5writeEPKvj)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002de2 (_read_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000015e4 (pinmap_peripheral)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000025e4 (__swrite)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002de6 (_read_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000005ec (_ZN12DirectSerial5writeEPKvj)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000005ee (_ZN12DirectSerial5writeEPKvj)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001df2 (std.isra.0)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000df2 (serial_baud)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000015f8 (pinmap_peripheral)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001608 (update_present_time)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002608 (__swrite)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001616 (update_present_time)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00006618 (__wrap__malloc_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000161e (update_present_time)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001e20 (__sinit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000e20 (serial_format)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001e2a (__sinit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001e2e (__sinit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000634 (_ZN12DirectSerial4readEPvj)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000e38 (serial_format)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000063a (_ZN12DirectSerial4readEPvj)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000640 (_ZN12DirectSerial4readEPvj)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002648 (strlen)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000e48 (serial_format)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001e4c (__sinit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000650 (_ZN12DirectSerialC2E7PinNameS0_i)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001e56 (__sinit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000e56 (serial_format)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001e60 (__sinit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000660 (_ZN12DirectSerialC2E7PinNameS0_i)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000666 (_ZN12DirectSerialC2E7PinNameS0_i)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000066e (_ZN12DirectSerialC2E7PinNameS0_i)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00002678 (strlen)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000680 (_ZN4mbed28mbed_target_override_consoleEi)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000684 (_ZN4mbed21mbed_override_consoleEi)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000688 (_sbrk)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000268e (strlen)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001692 (update_present_time)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000e94 (serial_getc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001e98 (_fstat_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000e98 (serial_getc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000169e (update_present_time)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000e9e (serial_getc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000006a4 (_sbrk)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001eac (_fstat_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001eb0 (_fstat_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000006b4 (_sbrk)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001ec0 (_fwalk)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000ec0 (serial_getc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001eca (_fwalk)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000ed4 (serial_writable)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001ed6 (_fwalk)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001ede (_fwalk)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001ee6 (_fwalk)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001eea (_fwalk)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001eec (_fwalk)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000006f0 (__aeabi_atexit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001ef4 (_fwalk)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000ef8 (serial_writable)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000006fa (__wrap_atexit)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001efa (_fwalk)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000006fe (__rtos_malloc_lock)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000700 (__rtos_malloc_unlock)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000f00 (serial_writable)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000702 (__malloc_lock)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000708 (__malloc_lock)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000070a (__malloc_unlock)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000f0a (serial_writable)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000710 (__malloc_unlock)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000714 (__cxa_guard_acquire)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000f20 (serial_putc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000722 (__cxa_guard_acquire)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001724 (schedule_interrupt)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000f2c (serial_putc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000730 (__cxa_guard_acquire)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000f30 (serial_putc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001734 (schedule_interrupt)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001738 (schedule_interrupt)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000748 (__cxa_guard_release)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000f50 (serial_set_flow_control)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001f58 (getc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000762 (__cxa_guard_release)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001f62 (getc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001f66 (getc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001f6c (getc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000f72 (serial_set_flow_control)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000778 (_ZL7get_fhci)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000780 (_ZL7get_fhci)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001f84 (getc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000078a (_ZL7get_fhci)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001f8a (getc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000078e (_ZL7get_fhci)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000f90 (serial_set_flow_control)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000792 (_ZL7get_fhci)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001f94 (getc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00000796 (_ZL7get_fhci)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001f9a (getc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x0000079c (_ZL7get_fhci)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000007a0 (_ZL7get_fhci)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001fa6 (getc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000007ac (_ZL7get_fhci)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001fac (getc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000007b2 (_ZL7get_fhci)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000007b6 (_ZL7get_fhci)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001fb6 (getc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000007bc (_ZL7get_fhci)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001fbe (getc)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000007c0 (_ZL7get_fhci)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001fc8 (__libc_init_array)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000007ce (_ZL7get_fhci)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000007d4 (_ZL7get_fhci)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000017d8 (schedule_interrupt)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000007de (_ZL7get_fhci)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001fe4 (__libc_init_array)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000027e4 (_write_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001fec (__libc_init_array)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000017f4 (initialize)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001ff6 (__libc_init_array)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x000027fa (_write_r)
+[10-08 11:47:23 INFO] pipeline.py - New basic block: 0x00001ffe (__libc_init_array)
+[10-08 11:47:24 INFO] pipeline.py - Found 1 new translation / basic block!
+[10-08 11:47:24 INFO] pipeline.py - New basic block: 0x00001258 (SystemInit)
+[10-08 11:47:26 INFO] pipeline.py - Found 1 new translation / basic block!
+[10-08 11:47:26 INFO] pipeline.py - New basic block: 0x00001272 (SystemInit)
+[10-08 11:47:28 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00001210_addr_400fc1a0_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:29 INFO] pipeline.py - Found 1 new translation / basic block!
+[10-08 11:47:29 INFO] pipeline.py - New basic block: 0x00000b3c (serial_irq_set_internal)
+[10-08 11:47:31 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00001218_addr_400fc1a0_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:34 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00001258_addr_400fc088_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:36 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00001272_addr_400fc088_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:36 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_0000128e_addr_400fc000_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:37 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000a10_addr_4002c00c_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:37 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000a1e_addr_4002c00c_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:38 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000a58_addr_4002c06c_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:39 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000a6c_addr_4002c06c_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:39 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000a84_addr_4002c04c_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:39 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000a92_addr_4002c04c_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:40 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00001304_addr_400fc0c4_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:40 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_000012b6_addr_40094008_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:41 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_000012c4_addr_40094014_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:42 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_0000114e_addr_400fc0c4_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:42 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000d6e_addr_400fc1a8_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:42 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000d7a_addr_400fc1a8_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:43 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000d22_addr_4000c00c_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:44 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000d38_addr_4000c00c_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:44 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000a10_addr_4002c000_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:44 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000a1e_addr_4002c000_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:45 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000a58_addr_4002c068_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:45 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000a6c_addr_4002c068_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:46 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000a84_addr_4002c040_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:47 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000a92_addr_4002c040_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:47 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000b28_addr_4000c004_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:48 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000b32_addr_4000c004_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:49 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000efa_addr_4000c014_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:50 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000e98_addr_4000c014_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:47:51 INFO] pipeline.py - New MMIO model: main001_fuzzer1_mmio_access_state_pc_00000ea4_addr_4000c000_id:000041,src:000000,op:havoc,rep:128
+[10-08 11:48:05 INFO] pipeline.py - Found 2 new translation / basic blocks!
+[10-08 11:48:05 INFO] pipeline.py - New basic block: 0x00001402 (main)
+[10-08 11:48:05 INFO] pipeline.py - New basic block: 0x0000140a (main)
+[10-08 11:48:06 INFO] pipeline.py - Found 2 new translation / basic blocks!
+[10-08 11:48:06 INFO] pipeline.py - New basic block: 0x0000140e (main)
+[10-08 11:48:06 INFO] pipeline.py - New basic block: 0x00001416 (main)
+[10-08 11:48:15 INFO] pipeline.py - Found 4 new translation / basic blocks!
+[10-08 11:48:15 INFO] pipeline.py - New basic block: 0x0000142e (main)
+[10-08 11:48:15 INFO] pipeline.py - New basic block: 0x0000141a (main)
+[10-08 11:48:15 INFO] pipeline.py - New basic block: 0x00001422 (main)
+[10-08 11:48:15 INFO] pipeline.py - New basic block: 0x00001426 (main)
+[10-08 11:48:19 INFO] pipeline.py - Found 2 new translation / basic blocks!
+[10-08 11:48:19 INFO] pipeline.py - New basic block: 0x00001432 (main)
+[10-08 11:48:19 INFO] pipeline.py - New basic block: 0x0000143a (main)
+[10-08 11:49:22 INFO] pipeline.py - Found 2 new translation / basic blocks!
+[10-08 11:49:22 INFO] pipeline.py - New basic block: 0x00001446 (main)
+[10-08 11:49:22 INFO] pipeline.py - New basic block: 0x0000143e (main)
+[10-08 11:49:24 INFO] pipeline.py - Found 2 new translation / basic blocks!
+[10-08 11:49:24 INFO] pipeline.py - New basic block: 0x0000144a (main)
+[10-08 11:49:24 INFO] pipeline.py - New basic block: 0x00001452 (main)
+l

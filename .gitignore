@@ -1,0 +1,4 @@
+boofuzz/venv/
+__pycache__/
+*.pyc
+boofuzz/results/boofuzz-minimal-2026-10-08.txt

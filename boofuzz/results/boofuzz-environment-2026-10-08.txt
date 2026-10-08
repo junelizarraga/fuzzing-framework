@@ -1,0 +1,11 @@
+Python 3.12.3
+Name: boofuzz
+Version: 0.4.2
+Summary: A fork and successor of the Sulley Fuzzing Framework
+Home-page: https://github.com/jtpereyda/boofuzz
+Author: Joshua Pereyda
+Author-email: joshua.t.pereyda@gmail.com
+License: GPL-2.0-only
+Location: /home/fuzzing/fuzzing-framework/boofuzz/venv/lib/python3.12/site-packages
+Requires: attrs, click, colorama, Flask, funcy, psutil, pydot, pyserial, tornado
+Required-by: 
